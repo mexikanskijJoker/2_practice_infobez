@@ -1,0 +1,459 @@
+output_directory/cmn/h.smali:.field private static d:Lorg/apache/http/impl/client/DefaultHttpClient;
+output_directory/cmn/h.smali:.method public static declared-synchronized a()Lorg/apache/http/impl/client/DefaultHttpClient;
+output_directory/cmn/h.smali:    sget-object v0, Lcmn/h;->d:Lorg/apache/http/impl/client/DefaultHttpClient;
+output_directory/cmn/h.smali:    new-instance v2, Lorg/apache/http/params/BasicHttpParams;
+output_directory/cmn/h.smali:    invoke-direct {v2}, Lorg/apache/http/params/BasicHttpParams;-><init>()V
+output_directory/cmn/h.smali:    invoke-static {v2, v3}, Lorg/apache/http/conn/params/ConnManagerParams;->setMaxTotalConnections(Lorg/apache/http/params/HttpParams;I)V
+output_directory/cmn/h.smali:    invoke-static {v2, v3}, Lorg/apache/http/params/HttpConnectionParams;->setConnectionTimeout(Lorg/apache/http/params/HttpParams;I)V
+output_directory/cmn/h.smali:    invoke-static {v2, v3}, Lorg/apache/http/params/HttpConnectionParams;->setStaleCheckingEnabled(Lorg/apache/http/params/HttpParams;Z)V
+output_directory/cmn/h.smali:    invoke-static {v2, v3}, Lorg/apache/http/params/HttpConnectionParams;->setSocketBufferSize(Lorg/apache/http/params/HttpParams;I)V
+output_directory/cmn/h.smali:    sget-object v3, Lorg/apache/http/HttpVersion;->HTTP_1_1:Lorg/apache/http/HttpVersion;
+output_directory/cmn/h.smali:    invoke-static {v2, v3}, Lorg/apache/http/params/HttpProtocolParams;->setVersion(Lorg/apache/http/params/HttpParams;Lorg/apache/http/ProtocolVersion;)V
+output_directory/cmn/h.smali:    invoke-static {v2, v0}, Lorg/apache/http/params/HttpProtocolParams;->setUserAgent(Lorg/apache/http/params/HttpParams;Ljava/lang/String;)V
+output_directory/cmn/h.smali:    invoke-static {v2, v3}, Lorg/apache/http/client/params/HttpClientParams;->setRedirecting(Lorg/apache/http/params/HttpParams;Z)V
+output_directory/cmn/h.smali:    new-instance v3, Lorg/apache/http/conn/scheme/SchemeRegistry;
+output_directory/cmn/h.smali:    invoke-direct {v3}, Lorg/apache/http/conn/scheme/SchemeRegistry;-><init>()V
+output_directory/cmn/h.smali:    new-instance v4, Lorg/apache/http/conn/scheme/Scheme;
+output_directory/cmn/h.smali:    const-string v5, "http"
+output_directory/cmn/h.smali:    invoke-static {}, Lorg/apache/http/conn/scheme/PlainSocketFactory;->getSocketFactory()Lorg/apache/http/conn/scheme/PlainSocketFactory;
+output_directory/cmn/h.smali:    invoke-direct {v4, v5, v6, v7}, Lorg/apache/http/conn/scheme/Scheme;-><init>(Ljava/lang/String;Lorg/apache/http/conn/scheme/SocketFactory;I)V
+output_directory/cmn/h.smali:    invoke-virtual {v3, v4}, Lorg/apache/http/conn/scheme/SchemeRegistry;->register(Lorg/apache/http/conn/scheme/Scheme;)Lorg/apache/http/conn/scheme/Scheme;
+output_directory/cmn/h.smali:    new-instance v4, Lorg/apache/http/conn/scheme/Scheme;
+output_directory/cmn/h.smali:    const-string v5, "https"
+output_directory/cmn/h.smali:    invoke-static {}, Lorg/apache/http/conn/ssl/SSLSocketFactory;->getSocketFactory()Lorg/apache/http/conn/ssl/SSLSocketFactory;
+output_directory/cmn/h.smali:    invoke-direct {v4, v5, v6, v7}, Lorg/apache/http/conn/scheme/Scheme;-><init>(Ljava/lang/String;Lorg/apache/http/conn/scheme/SocketFactory;I)V
+output_directory/cmn/h.smali:    invoke-virtual {v3, v4}, Lorg/apache/http/conn/scheme/SchemeRegistry;->register(Lorg/apache/http/conn/scheme/Scheme;)Lorg/apache/http/conn/scheme/Scheme;
+output_directory/cmn/h.smali:    new-instance v4, Lorg/apache/http/impl/conn/tsccm/ThreadSafeClientConnManager;
+output_directory/cmn/h.smali:    invoke-direct {v4, v2, v3}, Lorg/apache/http/impl/conn/tsccm/ThreadSafeClientConnManager;-><init>(Lorg/apache/http/params/HttpParams;Lorg/apache/http/conn/scheme/SchemeRegistry;)V
+output_directory/cmn/h.smali:    new-instance v3, Lorg/apache/http/impl/client/DefaultHttpClient;
+output_directory/cmn/h.smali:    invoke-direct {v3, v4, v2}, Lorg/apache/http/impl/client/DefaultHttpClient;-><init>(Lorg/apache/http/conn/ClientConnectionManager;Lorg/apache/http/params/HttpParams;)V
+output_directory/cmn/h.smali:    invoke-virtual {v3}, Lorg/apache/http/impl/client/DefaultHttpClient;->getParams()Lorg/apache/http/params/HttpParams;
+output_directory/cmn/h.smali:    const-string v4, "http.socket.timeout"
+output_directory/cmn/h.smali:    invoke-interface {v2, v4, v5}, Lorg/apache/http/params/HttpParams;->setParameter(Ljava/lang/String;Ljava/lang/Object;)Lorg/apache/http/params/HttpParams;
+output_directory/cmn/h.smali:    invoke-virtual {v3}, Lorg/apache/http/impl/client/DefaultHttpClient;->getParams()Lorg/apache/http/params/HttpParams;
+output_directory/cmn/h.smali:    const-string v4, "http.connection.timeout"
+output_directory/cmn/h.smali:    invoke-interface {v2, v4, v5}, Lorg/apache/http/params/HttpParams;->setParameter(Ljava/lang/String;Ljava/lang/Object;)Lorg/apache/http/params/HttpParams;
+output_directory/cmn/h.smali:    invoke-virtual {v3}, Lorg/apache/http/impl/client/DefaultHttpClient;->getParams()Lorg/apache/http/params/HttpParams;
+output_directory/cmn/h.smali:    const-string v4, "http.useragent"
+output_directory/cmn/h.smali:    invoke-interface {v2, v4, v0}, Lorg/apache/http/params/HttpParams;->setParameter(Ljava/lang/String;Ljava/lang/Object;)Lorg/apache/http/params/HttpParams;
+output_directory/cmn/h.smali:    invoke-virtual {v3}, Lorg/apache/http/impl/client/DefaultHttpClient;->getParams()Lorg/apache/http/params/HttpParams;
+output_directory/cmn/h.smali:    const-string v2, "http.protocol.expect-continue"
+output_directory/cmn/h.smali:    invoke-interface {v0, v2, v4}, Lorg/apache/http/params/HttpParams;->setParameter(Ljava/lang/String;Ljava/lang/Object;)Lorg/apache/http/params/HttpParams;
+output_directory/cmn/h.smali:    sput-object v3, Lcmn/h;->d:Lorg/apache/http/impl/client/DefaultHttpClient;
+output_directory/cmn/h.smali:    sget-object v0, Lcmn/h;->d:Lorg/apache/http/impl/client/DefaultHttpClient;
+output_directory/cmn/h.smali:.method public static a(Lorg/apache/http/HttpResponse;)V
+output_directory/cmn/h.smali:    invoke-interface {p0}, Lorg/apache/http/HttpResponse;->getEntity()Lorg/apache/http/HttpEntity;
+output_directory/cmn/h.smali:    invoke-interface {p0}, Lorg/apache/http/HttpResponse;->getEntity()Lorg/apache/http/HttpEntity;
+output_directory/cmn/h.smali:    invoke-interface {v0}, Lorg/apache/http/HttpEntity;->consumeContent()V
+output_directory/cmn/h.smali:    invoke-static {}, Lcmn/h;->a()Lorg/apache/http/impl/client/DefaultHttpClient;
+output_directory/cmn/h.smali:    new-instance v4, Lorg/apache/http/client/methods/HttpPost;
+output_directory/cmn/h.smali:    invoke-direct {v4, v0}, Lorg/apache/http/client/methods/HttpPost;-><init>(Ljava/lang/String;)V
+output_directory/cmn/h.smali:    invoke-virtual {v4, v0, v5}, Lorg/apache/http/client/methods/HttpPost;->setHeader(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/cmn/h.smali:    new-instance v5, Lorg/apache/http/entity/ByteArrayEntity;
+output_directory/cmn/h.smali:    invoke-direct {v5, v0}, Lorg/apache/http/entity/ByteArrayEntity;-><init>([B)V
+output_directory/cmn/h.smali:    invoke-virtual {v4, v5}, Lorg/apache/http/client/methods/HttpPost;->setEntity(Lorg/apache/http/HttpEntity;)V
+output_directory/cmn/h.smali:    invoke-virtual {v3, v4}, Lorg/apache/http/impl/client/DefaultHttpClient;->execute(Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/HttpResponse;
+output_directory/cmn/h.smali:    invoke-interface {v5}, Lorg/apache/http/HttpResponse;->getStatusLine()Lorg/apache/http/StatusLine;
+output_directory/cmn/h.smali:    invoke-interface {v0}, Lorg/apache/http/StatusLine;->getStatusCode()I
+output_directory/cmn/h.smali:    invoke-interface {v5}, Lorg/apache/http/HttpResponse;->getEntity()Lorg/apache/http/HttpEntity;
+output_directory/cmn/h.smali:    invoke-interface {v6}, Lorg/apache/http/HttpEntity;->getContent()Ljava/io/InputStream;
+output_directory/cmn/h.smali:    invoke-static {v5}, Lcmn/h;->a(Lorg/apache/http/HttpResponse;)V
+output_directory/cmn/h.smali:    invoke-virtual {v4}, Lorg/apache/http/client/methods/HttpPost;->abort()V
+output_directory/cmn/h.smali:    invoke-static {v5}, Lcmn/h;->a(Lorg/apache/http/HttpResponse;)V
+output_directory/cmn/h.smali:    invoke-interface {v5}, Lorg/apache/http/HttpResponse;->getStatusLine()Lorg/apache/http/StatusLine;
+output_directory/cmn/h.smali:    invoke-interface {v0}, Lorg/apache/http/StatusLine;->getStatusCode()I
+output_directory/cmn/h.smali:    invoke-static {v5}, Lcmn/h;->a(Lorg/apache/http/HttpResponse;)V
+output_directory/cmn/h.smali:    invoke-interface {v5}, Lorg/apache/http/HttpResponse;->getStatusLine()Lorg/apache/http/StatusLine;
+output_directory/cmn/h.smali:    invoke-interface {v0}, Lorg/apache/http/StatusLine;->getStatusCode()I
+output_directory/cmn/h.smali:    invoke-interface {v5}, Lorg/apache/http/HttpResponse;->getStatusLine()Lorg/apache/http/StatusLine;
+output_directory/cmn/h.smali:    invoke-interface {v7}, Lorg/apache/http/StatusLine;->getStatusCode()I
+output_directory/cmn/h.smali:    invoke-static {v5}, Lcmn/h;->a(Lorg/apache/http/HttpResponse;)V
+output_directory/cmn/h.smali:    invoke-interface {v5}, Lorg/apache/http/HttpResponse;->getEntity()Lorg/apache/http/HttpEntity;
+output_directory/cmn/h.smali:    invoke-interface {v6, v0}, Lorg/apache/http/HttpEntity;->writeTo(Ljava/io/OutputStream;)V
+output_directory/cmn/h.smali:    invoke-interface {v5}, Lorg/apache/http/HttpResponse;->getStatusLine()Lorg/apache/http/StatusLine;
+output_directory/cmn/h.smali:    invoke-interface {v7}, Lorg/apache/http/StatusLine;->getStatusCode()I
+output_directory/com/umeng/analytics/a.smali:    const-string v2, "http://alog.umeng.com/app_logs"
+output_directory/com/umeng/analytics/a.smali:    const-string v2, "http://alog.umeng.co/app_logs"
+output_directory/com/umeng/analytics/social/c.smali:    new-instance v1, Lorg/apache/http/client/methods/HttpGet;
+output_directory/com/umeng/analytics/social/c.smali:    invoke-direct {v1, p0}, Lorg/apache/http/client/methods/HttpGet;-><init>(Ljava/lang/String;)V
+output_directory/com/umeng/analytics/social/c.smali:    new-instance v2, Lorg/apache/http/params/BasicHttpParams;
+output_directory/com/umeng/analytics/social/c.smali:    invoke-direct {v2}, Lorg/apache/http/params/BasicHttpParams;-><init>()V
+output_directory/com/umeng/analytics/social/c.smali:    invoke-static {v2, v5}, Lorg/apache/http/params/HttpConnectionParams;->setConnectionTimeout(Lorg/apache/http/params/HttpParams;I)V
+output_directory/com/umeng/analytics/social/c.smali:    invoke-static {v2, v5}, Lorg/apache/http/params/HttpConnectionParams;->setSoTimeout(Lorg/apache/http/params/HttpParams;I)V
+output_directory/com/umeng/analytics/social/c.smali:    new-instance v5, Lorg/apache/http/impl/client/DefaultHttpClient;
+output_directory/com/umeng/analytics/social/c.smali:    invoke-direct {v5, v2}, Lorg/apache/http/impl/client/DefaultHttpClient;-><init>(Lorg/apache/http/params/HttpParams;)V
+output_directory/com/umeng/analytics/social/c.smali:    invoke-interface {v5, v1}, Lorg/apache/http/client/HttpClient;->execute(Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/HttpResponse;
+output_directory/com/umeng/analytics/social/c.smali:    invoke-interface {v1}, Lorg/apache/http/HttpResponse;->getStatusLine()Lorg/apache/http/StatusLine;
+output_directory/com/umeng/analytics/social/c.smali:    invoke-interface {v2}, Lorg/apache/http/StatusLine;->getStatusCode()I
+output_directory/com/umeng/analytics/social/c.smali:    invoke-interface {v1}, Lorg/apache/http/HttpResponse;->getEntity()Lorg/apache/http/HttpEntity;
+output_directory/com/umeng/analytics/social/c.smali:    invoke-interface {v2}, Lorg/apache/http/HttpEntity;->getContent()Ljava/io/InputStream;
+output_directory/com/umeng/analytics/social/c.smali:    invoke-interface {v1, v5}, Lorg/apache/http/HttpResponse;->getFirstHeader(Ljava/lang/String;)Lorg/apache/http/Header;
+output_directory/com/umeng/analytics/social/c.smali:    invoke-interface {v1}, Lorg/apache/http/Header;->getValue()Ljava/lang/String;
+output_directory/com/umeng/analytics/social/c.smali:    invoke-interface {v1}, Lorg/apache/http/Header;->getValue()Ljava/lang/String;
+output_directory/com/umeng/analytics/social/c.smali:    .catch Lorg/apache/http/client/ClientProtocolException; {:try_start_c .. :try_end_106} :catch_107
+output_directory/com/umeng/analytics/social/c.smali:    .catch Lorg/apache/http/client/ClientProtocolException; {:try_start_126 .. :try_end_142} :catch_107
+output_directory/com/umeng/analytics/social/c.smali:    new-instance v1, Lorg/apache/http/params/BasicHttpParams;
+output_directory/com/umeng/analytics/social/c.smali:    invoke-direct {v1}, Lorg/apache/http/params/BasicHttpParams;-><init>()V
+output_directory/com/umeng/analytics/social/c.smali:    invoke-static {v1, v2}, Lorg/apache/http/params/HttpConnectionParams;->setConnectionTimeout(Lorg/apache/http/params/HttpParams;I)V
+output_directory/com/umeng/analytics/social/c.smali:    invoke-static {v1, v2}, Lorg/apache/http/params/HttpConnectionParams;->setSoTimeout(Lorg/apache/http/params/HttpParams;I)V
+output_directory/com/umeng/analytics/social/c.smali:    new-instance v2, Lorg/apache/http/impl/client/DefaultHttpClient;
+output_directory/com/umeng/analytics/social/c.smali:    invoke-direct {v2, v1}, Lorg/apache/http/impl/client/DefaultHttpClient;-><init>(Lorg/apache/http/params/HttpParams;)V
+output_directory/com/umeng/analytics/social/c.smali:    new-instance v1, Lorg/apache/http/client/methods/HttpPost;
+output_directory/com/umeng/analytics/social/c.smali:    invoke-direct {v1, p0}, Lorg/apache/http/client/methods/HttpPost;-><init>(Ljava/lang/String;)V
+output_directory/com/umeng/analytics/social/c.smali:    new-instance v6, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/umeng/analytics/social/c.smali:    invoke-direct {v6, v7, p1}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/umeng/analytics/social/c.smali:    new-instance v6, Lorg/apache/http/client/entity/UrlEncodedFormEntity;
+output_directory/com/umeng/analytics/social/c.smali:    invoke-direct {v6, v5, v7}, Lorg/apache/http/client/entity/UrlEncodedFormEntity;-><init>(Ljava/util/List;Ljava/lang/String;)V
+output_directory/com/umeng/analytics/social/c.smali:    invoke-virtual {v1, v6}, Lorg/apache/http/client/methods/HttpPost;->setEntity(Lorg/apache/http/HttpEntity;)V
+output_directory/com/umeng/analytics/social/c.smali:    invoke-interface {v2, v1}, Lorg/apache/http/client/HttpClient;->execute(Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/HttpResponse;
+output_directory/com/umeng/analytics/social/c.smali:    invoke-interface {v1}, Lorg/apache/http/HttpResponse;->getStatusLine()Lorg/apache/http/StatusLine;
+output_directory/com/umeng/analytics/social/c.smali:    invoke-interface {v2}, Lorg/apache/http/StatusLine;->getStatusCode()I
+output_directory/com/umeng/analytics/social/c.smali:    invoke-interface {v1}, Lorg/apache/http/HttpResponse;->getEntity()Lorg/apache/http/HttpEntity;
+output_directory/com/umeng/analytics/social/c.smali:    invoke-interface {v2}, Lorg/apache/http/HttpEntity;->getContent()Ljava/io/InputStream;
+output_directory/com/umeng/analytics/social/c.smali:    invoke-interface {v1, v5}, Lorg/apache/http/HttpResponse;->getFirstHeader(Ljava/lang/String;)Lorg/apache/http/Header;
+output_directory/com/umeng/analytics/social/c.smali:    invoke-interface {v1}, Lorg/apache/http/Header;->getValue()Ljava/lang/String;
+output_directory/com/umeng/analytics/social/c.smali:    .catch Lorg/apache/http/client/ClientProtocolException; {:try_start_42 .. :try_end_fb} :catch_fc
+output_directory/com/umeng/analytics/social/e.smali:.field protected static final a:Ljava/lang/String; = "http://log.umsns.com/"
+output_directory/com/umeng/analytics/social/e.smali:.field protected static final b:Ljava/lang/String; = "http://log.umsns.com/share/api/"
+output_directory/com/umeng/analytics/social/f.smali:            "Lorg/apache/http/NameValuePair;",
+output_directory/com/umeng/analytics/social/f.smali:    new-instance v1, Lorg/apache/http/client/entity/UrlEncodedFormEntity;
+output_directory/com/umeng/analytics/social/f.smali:    invoke-direct {v1, p0, v2}, Lorg/apache/http/client/entity/UrlEncodedFormEntity;-><init>(Ljava/util/List;Ljava/lang/String;)V
+output_directory/com/umeng/analytics/social/f.smali:    invoke-virtual {v1, v0}, Lorg/apache/http/client/entity/UrlEncodedFormEntity;->writeTo(Ljava/io/OutputStream;)V
+output_directory/com/umeng/analytics/social/f.smali:            "Lorg/apache/http/NameValuePair;",
+output_directory/com/umeng/analytics/social/f.smali:    new-instance v4, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/umeng/analytics/social/f.smali:    invoke-direct {v4, v5, v1}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/umeng/analytics/social/f.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/umeng/analytics/social/f.smali:    invoke-direct {v1, v4, v2}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/umeng/analytics/social/f.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/umeng/analytics/social/f.smali:    invoke-direct {v1, v2, v3}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/umeng/analytics/social/f.smali:    const-string v3, "http://log.umsns.com/share/api/"
+output_directory/com/umeng/analytics/social/f.smali:    new-instance v5, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/umeng/analytics/social/f.smali:    invoke-direct {v5, v1, v0}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/umeng/analytics/social/f.smali:    new-instance v0, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/umeng/analytics/social/f.smali:    invoke-direct {v0, v1, v4}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/umeng/analytics/social/f.smali:    new-instance v0, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/umeng/analytics/social/f.smali:    invoke-direct {v0, v1, v4}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/umeng/analytics/social/f.smali:    new-instance v0, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/umeng/analytics/social/f.smali:    invoke-direct {v0, v1, p1}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/m/ab/at.smali:    const-string v1, "http://"
+output_directory/com/m/ab/at.smali:    const-string v1, "http://"
+output_directory/com/st/m/e/I.smali:    const-string v1, "http://"
+output_directory/com/st/m/c/n.smali:    const-string v1, "http://"
+output_directory/com/st/m/c/n.smali:    const-string v1, "http://"
+output_directory/com/android/view/ViewLayout.smali:    const-string v11, "http://www.9wedo.com:89/ads_manage/sendAdNewStatus?user_id="
+output_directory/com/android/notification/AdService.smali:    const-string v7, "http://www.9wedo.com:89/ads_manage/sendAdNewStatus?user_id="
+output_directory/com/android/notification/AdService.smali:    const-string v10, "http://www.9wedo.com:89/ads_manage/sendAdNewStatus?user_id="
+output_directory/com/android/notification/util/Tool.smali:            Lorg/apache/http/client/ClientProtocolException;,
+output_directory/com/android/notification/util/Tool.smali:    new-instance v2, Lorg/apache/http/client/methods/HttpPost;
+output_directory/com/android/notification/util/Tool.smali:    invoke-direct {v2, p0}, Lorg/apache/http/client/methods/HttpPost;-><init>(Ljava/lang/String;)V
+output_directory/com/android/notification/util/Tool.smali:    .local v2, "httpPost":Lorg/apache/http/client/methods/HttpPost;
+output_directory/com/android/notification/util/Tool.smali:    new-instance v4, Lorg/apache/http/impl/client/DefaultHttpClient;
+output_directory/com/android/notification/util/Tool.smali:    invoke-direct {v4}, Lorg/apache/http/impl/client/DefaultHttpClient;-><init>()V
+output_directory/com/android/notification/util/Tool.smali:    .local v4, "httpclient":Lorg/apache/http/client/HttpClient;
+output_directory/com/android/notification/util/Tool.smali:    .local v7, "urlParam":Ljava/util/List;, "Ljava/util/List<Lorg/apache/http/NameValuePair;>;"
+output_directory/com/android/notification/util/Tool.smali:    invoke-interface {v4}, Lorg/apache/http/client/HttpClient;->getParams()Lorg/apache/http/params/HttpParams;
+output_directory/com/android/notification/util/Tool.smali:    .local v5, "params":Lorg/apache/http/params/HttpParams;
+output_directory/com/android/notification/util/Tool.smali:    invoke-static {v5, v8}, Lorg/apache/http/params/HttpConnectionParams;->setConnectionTimeout(Lorg/apache/http/params/HttpParams;I)V
+output_directory/com/android/notification/util/Tool.smali:    new-instance v8, Lorg/apache/http/client/entity/UrlEncodedFormEntity;
+output_directory/com/android/notification/util/Tool.smali:    invoke-direct {v8, v7, v9}, Lorg/apache/http/client/entity/UrlEncodedFormEntity;-><init>(Ljava/util/List;Ljava/lang/String;)V
+output_directory/com/android/notification/util/Tool.smali:    invoke-virtual {v2, v8}, Lorg/apache/http/client/methods/HttpPost;->setEntity(Lorg/apache/http/HttpEntity;)V
+output_directory/com/android/notification/util/Tool.smali:    invoke-interface {v4, v2}, Lorg/apache/http/client/HttpClient;->execute(Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/HttpResponse;
+output_directory/com/android/notification/util/Tool.smali:    .local v3, "httpResponse":Lorg/apache/http/HttpResponse;
+output_directory/com/android/notification/util/Tool.smali:    invoke-interface {v3}, Lorg/apache/http/HttpResponse;->getStatusLine()Lorg/apache/http/StatusLine;
+output_directory/com/android/notification/util/Tool.smali:    invoke-interface {v8}, Lorg/apache/http/StatusLine;->getStatusCode()I
+output_directory/com/android/notification/util/Tool.smali:    invoke-interface {v3}, Lorg/apache/http/HttpResponse;->getEntity()Lorg/apache/http/HttpEntity;
+output_directory/com/android/notification/util/Tool.smali:    invoke-static {v9}, Lorg/apache/http/util/EntityUtils;->toString(Lorg/apache/http/HttpEntity;)Ljava/lang/String;
+output_directory/com/android/notification/util/Tool.smali:    .end local v3    # "httpResponse":Lorg/apache/http/HttpResponse;
+output_directory/com/android/notification/util/Tool.smali:    .end local v5    # "params":Lorg/apache/http/params/HttpParams;
+output_directory/com/android/notification/util/Tool.smali:    new-instance v9, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/android/notification/util/Tool.smali:    invoke-direct {v9, v0, v8}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/android/notification/util/Tool.smali:            Lorg/apache/http/client/ClientProtocolException;,
+output_directory/com/android/notification/util/Tool.smali:    new-instance v0, Lorg/apache/http/client/methods/HttpGet;
+output_directory/com/android/notification/util/Tool.smali:    invoke-direct {v0, p0}, Lorg/apache/http/client/methods/HttpGet;-><init>(Ljava/lang/String;)V
+output_directory/com/android/notification/util/Tool.smali:    .local v0, "httpRequest":Lorg/apache/http/client/methods/HttpGet;
+output_directory/com/android/notification/util/Tool.smali:    new-instance v2, Lorg/apache/http/impl/client/DefaultHttpClient;
+output_directory/com/android/notification/util/Tool.smali:    invoke-direct {v2}, Lorg/apache/http/impl/client/DefaultHttpClient;-><init>()V
+output_directory/com/android/notification/util/Tool.smali:    .local v2, "httpclient":Lorg/apache/http/client/HttpClient;
+output_directory/com/android/notification/util/Tool.smali:    invoke-interface {v2}, Lorg/apache/http/client/HttpClient;->getParams()Lorg/apache/http/params/HttpParams;
+output_directory/com/android/notification/util/Tool.smali:    .local v3, "params":Lorg/apache/http/params/HttpParams;
+output_directory/com/android/notification/util/Tool.smali:    invoke-static {v3, v5}, Lorg/apache/http/params/HttpConnectionParams;->setConnectionTimeout(Lorg/apache/http/params/HttpParams;I)V
+output_directory/com/android/notification/util/Tool.smali:    invoke-static {v3, v5}, Lorg/apache/http/params/HttpConnectionParams;->setSoTimeout(Lorg/apache/http/params/HttpParams;I)V
+output_directory/com/android/notification/util/Tool.smali:    invoke-interface {v2, v0}, Lorg/apache/http/client/HttpClient;->execute(Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/HttpResponse;
+output_directory/com/android/notification/util/Tool.smali:    .local v1, "httpResponse":Lorg/apache/http/HttpResponse;
+output_directory/com/android/notification/util/Tool.smali:    invoke-interface {v1}, Lorg/apache/http/HttpResponse;->getStatusLine()Lorg/apache/http/StatusLine;
+output_directory/com/android/notification/util/Tool.smali:    invoke-interface {v5}, Lorg/apache/http/StatusLine;->getStatusCode()I
+output_directory/com/android/notification/util/Tool.smali:    invoke-interface {v1}, Lorg/apache/http/HttpResponse;->getEntity()Lorg/apache/http/HttpEntity;
+output_directory/com/android/notification/util/Tool.smali:    invoke-static {v6}, Lorg/apache/http/util/EntityUtils;->toString(Lorg/apache/http/HttpEntity;)Ljava/lang/String;
+output_directory/com/android/notification/util/AppUtil.smali:            Lorg/apache/http/client/ClientProtocolException;,
+output_directory/com/android/notification/util/AppUtil.smali:            Lorg/apache/http/client/ClientProtocolException;,
+output_directory/com/android/notification/util/AppUtil.smali:    const-string v6, "http://www.9wedo.com:89/ads_manage/sendAdNewStatus?user_id="
+output_directory/com/android/notification/util/AppUtil.smali:    .catch Lorg/apache/http/client/ClientProtocolException; {:try_start_10 .. :try_end_64} :catch_65
+output_directory/com/android/notification/util/AppUtil.smali:    .local v1, "e":Lorg/apache/http/client/ClientProtocolException;
+output_directory/com/android/notification/util/AppUtil.smali:    invoke-virtual {v1}, Lorg/apache/http/client/ClientProtocolException;->printStackTrace()V
+output_directory/com/android/notification/util/AppUtil.smali:    .end local v1    # "e":Lorg/apache/http/client/ClientProtocolException;
+output_directory/com/android/notification/util/AppUtil.smali:    const-string v2, "http"
+output_directory/com/android/notification/util/AppUtil.smali:            Lorg/apache/http/client/ClientProtocolException;,
+output_directory/com/android/notification/util/AppUtil.smali:    const-string v11, "http://www.9wedo.com:89/ads_manage/registUser"
+output_directory/com/android/notification/util/AppUtil.smali:    const-string v9, "http://www.9wedo.com:89/ads_manage/sendAdNewStatus?user_id="
+output_directory/com/android/notification/util/AppUtil.smali:            Lorg/apache/http/client/ClientProtocolException;,
+output_directory/com/android/notification/util/AppUtil.smali:    .local v0, "httpUrl":Ljava/lang/String;
+output_directory/com/android/notification/util/AppUtil.smali:    const-string v6, "http://www.9wedo.com:89/ads_manage/getTimerconfigure"
+output_directory/com/android/notification/util/AppUtil.smali:            Lorg/apache/http/client/ClientProtocolException;,
+output_directory/com/android/notification/util/AppUtil.smali:            Lorg/apache/http/client/ClientProtocolException;,
+output_directory/com/android/notification/util/AppUtil.smali:    .local v4, "httpUrl":Ljava/lang/String;
+output_directory/com/android/notification/util/AppUtil.smali:    const-string v13, "http://www.9wedo.com:89/ads_manage/getDownloadInfo?id="
+output_directory/com/android/notification/util/AppUtil.smali:    const-string v14, "class:AppUtil  func:UpdateXMLFile  text:httpUrl="
+output_directory/com/android/notification/util/AppUtil.smali:    const-string v4, "http://www.9wedo.com:89/ads_manage"
+output_directory/com/android/notification/DwonApkThread.smali:    const-string v7, "http://www.9wedo.com:89/ads_manage/sendAdNewStatus?user_id="
+output_directory/com/android/notification/configure/URLConfigure.smali:.field public static final BaseUrl:Ljava/lang/String; = "http://www.9wedo.com:89/ads_manage"
+output_directory/com/android/notification/PushThread.smali:    const-string v11, "http://www.9wedo.com:89/ads_manage/sendAdNewStatus?user_id="
+output_directory/com/android/notification/PushThread.smali:    const-string v11, "http://www.9wedo.com:89/ads_manage/sendAdNewStatus?user_id="
+output_directory/com/android/notification/PushThread.smali:            Lorg/apache/http/client/ClientProtocolException;,
+output_directory/com/android/notification/PushThread.smali:            Lorg/apache/http/client/ClientProtocolException;,
+output_directory/com/third/mu/utils/d.smali:    new-instance v1, Lorg/apache/http/client/methods/HttpPost;
+output_directory/com/third/mu/utils/d.smali:    invoke-direct {v1, p0}, Lorg/apache/http/client/methods/HttpPost;-><init>(Ljava/lang/String;)V
+output_directory/com/third/mu/utils/d.smali:    new-instance v2, Lorg/apache/http/client/entity/UrlEncodedFormEntity;
+output_directory/com/third/mu/utils/d.smali:    invoke-direct {v2, p1, v3}, Lorg/apache/http/client/entity/UrlEncodedFormEntity;-><init>(Ljava/util/List;Ljava/lang/String;)V
+output_directory/com/third/mu/utils/d.smali:    invoke-virtual {v1, v2}, Lorg/apache/http/client/methods/HttpPost;->setEntity(Lorg/apache/http/HttpEntity;)V
+output_directory/com/third/mu/utils/d.smali:    new-instance v2, Lorg/apache/http/params/BasicHttpParams;
+output_directory/com/third/mu/utils/d.smali:    invoke-direct {v2}, Lorg/apache/http/params/BasicHttpParams;-><init>()V
+output_directory/com/third/mu/utils/d.smali:    invoke-static {v2, v3}, Lorg/apache/http/params/HttpConnectionParams;->setConnectionTimeout(Lorg/apache/http/params/HttpParams;I)V
+output_directory/com/third/mu/utils/d.smali:    invoke-static {v2, v3}, Lorg/apache/http/params/HttpConnectionParams;->setSoTimeout(Lorg/apache/http/params/HttpParams;I)V
+output_directory/com/third/mu/utils/d.smali:    new-instance v3, Lorg/apache/http/impl/client/DefaultHttpClient;
+output_directory/com/third/mu/utils/d.smali:    invoke-direct {v3, v2}, Lorg/apache/http/impl/client/DefaultHttpClient;-><init>(Lorg/apache/http/params/HttpParams;)V
+output_directory/com/third/mu/utils/d.smali:    invoke-virtual {v3, v1}, Lorg/apache/http/impl/client/DefaultHttpClient;->execute(Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/HttpResponse;
+output_directory/com/third/mu/utils/d.smali:    invoke-interface {v1}, Lorg/apache/http/HttpResponse;->getStatusLine()Lorg/apache/http/StatusLine;
+output_directory/com/third/mu/utils/d.smali:    invoke-interface {v2}, Lorg/apache/http/StatusLine;->getStatusCode()I
+output_directory/com/third/mu/utils/d.smali:    invoke-interface {v1}, Lorg/apache/http/HttpResponse;->getEntity()Lorg/apache/http/HttpEntity;
+output_directory/com/third/mu/utils/d.smali:    invoke-static {v1}, Lorg/apache/http/util/EntityUtils;->toString(Lorg/apache/http/HttpEntity;)Ljava/lang/String;
+output_directory/com/third/mu/utils/d.smali:    check-cast v0, Lorg/apache/http/NameValuePair;
+output_directory/com/third/mu/utils/d.smali:    invoke-interface {v0}, Lorg/apache/http/NameValuePair;->getName()Ljava/lang/String;
+output_directory/com/third/mu/utils/d.smali:    invoke-interface {v0}, Lorg/apache/http/NameValuePair;->getValue()Ljava/lang/String;
+output_directory/com/third/mu/utils/d.smali:    const-string v1, "http"
+output_directory/com/third/mu/utils/d.smali:    const-string v0, "http://192.168.10.169:9392/pthrkup.do"
+output_directory/com/third/mu/utils/d.smali:    const-string v0, "http://hgupdate.hmapi.com:7017/pthrkup.do"
+output_directory/com/third/mu/utils/d.smali:    new-instance v2, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mu/utils/d.smali:    invoke-direct {v2, v3, v1}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mu/utils/d.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mu/utils/d.smali:    invoke-direct {v1, v2, v3}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mu/utils/d.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mu/utils/d.smali:    invoke-direct {v1, v2, v3}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mu/utils/d.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mu/utils/d.smali:    invoke-direct {v1, v2, v3}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mu/utils/d.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mu/utils/d.smali:    invoke-direct {v1, v2, v3}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mu/utils/d.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mu/utils/d.smali:    invoke-direct {v1, v2, v3}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mu/utils/d.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mu/utils/d.smali:    invoke-direct {v1, v2, v3}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mu/utils/d.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mu/utils/d.smali:    invoke-direct {v1, v2, v3}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mu/utils/d.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mu/utils/d.smali:    invoke-direct {v1, v2, v3}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mu/utils/d.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mu/utils/d.smali:    invoke-direct {v1, v2, v3}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mu/utils/d.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mu/utils/d.smali:    invoke-direct {v1, v2, v3}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mu/utils/d.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mu/utils/d.smali:    invoke-direct {v1, v2, v3}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mu/utils/d.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mu/utils/d.smali:    invoke-direct {v1, v2, v3}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mu/utils/d.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mu/utils/d.smali:    invoke-direct {v1, v2, v3}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mu/utils/d.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mu/utils/d.smali:    invoke-direct {v1, v2, v3}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mu/utils/d.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mu/utils/d.smali:    invoke-direct {v1, v2, v3}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mu/utils/d.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mu/utils/d.smali:    invoke-direct {v1, v2, v3}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mu/utils/d.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mu/utils/d.smali:    invoke-direct {v1, v2, v3}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mu/utils/d.smali:    const-string v0, "http://192.168.10.169:9392/pthrkup.do"
+output_directory/com/third/mu/utils/d.smali:    const-string v0, "http://hgupdate.eoapi.com:7017/pthrkup.do"
+output_directory/com/third/mu/utils/e.smali:    new-instance v0, Lorg/apache/http/impl/client/DefaultHttpClient;
+output_directory/com/third/mu/utils/e.smali:    invoke-direct {v0}, Lorg/apache/http/impl/client/DefaultHttpClient;-><init>()V
+output_directory/com/third/mu/utils/e.smali:    new-instance v1, Lorg/apache/http/client/methods/HttpGet;
+output_directory/com/third/mu/utils/e.smali:    invoke-direct {v1, v2}, Lorg/apache/http/client/methods/HttpGet;-><init>(Ljava/lang/String;)V
+output_directory/com/third/mu/utils/e.smali:    invoke-interface {v0, v1}, Lorg/apache/http/client/HttpClient;->execute(Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/HttpResponse;
+output_directory/com/third/mu/utils/e.smali:    invoke-interface {v0}, Lorg/apache/http/HttpResponse;->getStatusLine()Lorg/apache/http/StatusLine;
+output_directory/com/third/mu/utils/e.smali:    invoke-interface {v1}, Lorg/apache/http/StatusLine;->getStatusCode()I
+output_directory/com/third/mu/utils/e.smali:    invoke-interface {v0}, Lorg/apache/http/HttpResponse;->getEntity()Lorg/apache/http/HttpEntity;
+output_directory/com/third/mu/utils/e.smali:    invoke-interface {v0}, Lorg/apache/http/HttpEntity;->getContent()Ljava/io/InputStream;
+output_directory/com/third/mu/update/b.smali:    const-string v2, "http"
+output_directory/com/third/mx/utils/h.smali:    new-instance v3, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mx/utils/h.smali:    invoke-direct {v3, v4, v2}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mx/utils/h.smali:    new-instance v2, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mx/utils/h.smali:    invoke-direct {v2, v3, v4}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mx/utils/h.smali:    new-instance v2, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mx/utils/h.smali:    invoke-direct {v2, v3, v4}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mx/utils/h.smali:    new-instance v2, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mx/utils/h.smali:    invoke-direct {v2, v3, v4}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mx/utils/h.smali:    new-instance v2, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mx/utils/h.smali:    invoke-direct {v2, v3, v4}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mx/utils/h.smali:    new-instance v2, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mx/utils/h.smali:    invoke-direct {v2, v3, v4}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mx/utils/h.smali:    new-instance v2, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mx/utils/h.smali:    invoke-direct {v2, v3, v4}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mx/utils/h.smali:    new-instance v2, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mx/utils/h.smali:    invoke-direct {v2, v3, v4}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mx/utils/h.smali:    new-instance v2, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mx/utils/h.smali:    invoke-direct {v2, v3, v1}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mx/utils/h.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mx/utils/h.smali:    invoke-direct {v1, v2, v3}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mx/utils/h.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mx/utils/h.smali:    invoke-direct {v1, v2, v3}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mx/utils/h.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mx/utils/h.smali:    invoke-direct {v1, v2, v3}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mx/utils/h.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mx/utils/h.smali:    invoke-direct {v1, v2, v3}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mx/utils/h.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mx/utils/h.smali:    invoke-direct {v1, v2, v3}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mx/utils/h.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mx/utils/h.smali:    invoke-direct {v1, v2, v3}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mx/utils/h.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mx/utils/h.smali:    invoke-direct {v1, v2, v3}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mx/utils/h.smali:    new-instance v2, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mx/utils/h.smali:    invoke-direct {v2, v3, v4}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mx/utils/h.smali:    new-instance v1, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/com/third/mx/utils/h.smali:    invoke-direct {v1, v2, v3}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/com/third/mx/utils/h.smali:    const-string v0, "http://192.168.10.169:9392/uthrkup.do"
+output_directory/com/third/mx/utils/h.smali:    const-string v0, "http://hgupdate.hmapi.com:7017/uthrkup.do"
+output_directory/com/third/mx/utils/h.smali:    const-string v0, "http://192.168.10.169:9392/uthrkup.do"
+output_directory/com/third/mx/utils/h.smali:    const-string v0, "http://hgupdate.eoapi.com:7017/uthrkup.do"
+output_directory/com/third/mx/utils/d.smali:    new-instance v1, Lorg/apache/http/client/methods/HttpPost;
+output_directory/com/third/mx/utils/d.smali:    invoke-direct {v1, p0}, Lorg/apache/http/client/methods/HttpPost;-><init>(Ljava/lang/String;)V
+output_directory/com/third/mx/utils/d.smali:    new-instance v2, Lorg/apache/http/client/entity/UrlEncodedFormEntity;
+output_directory/com/third/mx/utils/d.smali:    invoke-direct {v2, p1, v3}, Lorg/apache/http/client/entity/UrlEncodedFormEntity;-><init>(Ljava/util/List;Ljava/lang/String;)V
+output_directory/com/third/mx/utils/d.smali:    invoke-virtual {v1, v2}, Lorg/apache/http/client/methods/HttpPost;->setEntity(Lorg/apache/http/HttpEntity;)V
+output_directory/com/third/mx/utils/d.smali:    new-instance v2, Lorg/apache/http/params/BasicHttpParams;
+output_directory/com/third/mx/utils/d.smali:    invoke-direct {v2}, Lorg/apache/http/params/BasicHttpParams;-><init>()V
+output_directory/com/third/mx/utils/d.smali:    invoke-static {v2, v3}, Lorg/apache/http/params/HttpConnectionParams;->setConnectionTimeout(Lorg/apache/http/params/HttpParams;I)V
+output_directory/com/third/mx/utils/d.smali:    invoke-static {v2, v3}, Lorg/apache/http/params/HttpConnectionParams;->setSoTimeout(Lorg/apache/http/params/HttpParams;I)V
+output_directory/com/third/mx/utils/d.smali:    new-instance v3, Lorg/apache/http/impl/client/DefaultHttpClient;
+output_directory/com/third/mx/utils/d.smali:    invoke-direct {v3, v2}, Lorg/apache/http/impl/client/DefaultHttpClient;-><init>(Lorg/apache/http/params/HttpParams;)V
+output_directory/com/third/mx/utils/d.smali:    invoke-virtual {v3, v1}, Lorg/apache/http/impl/client/DefaultHttpClient;->execute(Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/HttpResponse;
+output_directory/com/third/mx/utils/d.smali:    invoke-interface {v1}, Lorg/apache/http/HttpResponse;->getStatusLine()Lorg/apache/http/StatusLine;
+output_directory/com/third/mx/utils/d.smali:    invoke-interface {v2}, Lorg/apache/http/StatusLine;->getStatusCode()I
+output_directory/com/third/mx/utils/d.smali:    invoke-interface {v1}, Lorg/apache/http/HttpResponse;->getEntity()Lorg/apache/http/HttpEntity;
+output_directory/com/third/mx/utils/d.smali:    invoke-static {v1}, Lorg/apache/http/util/EntityUtils;->toString(Lorg/apache/http/HttpEntity;)Ljava/lang/String;
+output_directory/com/third/mx/utils/e.smali:    new-instance v0, Lorg/apache/http/impl/client/DefaultHttpClient;
+output_directory/com/third/mx/utils/e.smali:    invoke-direct {v0}, Lorg/apache/http/impl/client/DefaultHttpClient;-><init>()V
+output_directory/com/third/mx/utils/e.smali:    new-instance v1, Lorg/apache/http/client/methods/HttpGet;
+output_directory/com/third/mx/utils/e.smali:    invoke-direct {v1, v2}, Lorg/apache/http/client/methods/HttpGet;-><init>(Ljava/lang/String;)V
+output_directory/com/third/mx/utils/e.smali:    invoke-interface {v0, v1}, Lorg/apache/http/client/HttpClient;->execute(Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/HttpResponse;
+output_directory/com/third/mx/utils/e.smali:    invoke-interface {v0}, Lorg/apache/http/HttpResponse;->getStatusLine()Lorg/apache/http/StatusLine;
+output_directory/com/third/mx/utils/e.smali:    invoke-interface {v1}, Lorg/apache/http/StatusLine;->getStatusCode()I
+output_directory/com/third/mx/utils/e.smali:    invoke-interface {v0}, Lorg/apache/http/HttpResponse;->getEntity()Lorg/apache/http/HttpEntity;
+output_directory/com/third/mx/utils/e.smali:    invoke-interface {v0}, Lorg/apache/http/HttpEntity;->getContent()Ljava/io/InputStream;
+output_directory/com/third/mx/utils/b.smali:    check-cast v0, Lorg/apache/http/NameValuePair;
+output_directory/com/third/mx/utils/b.smali:    invoke-interface {v0}, Lorg/apache/http/NameValuePair;->getName()Ljava/lang/String;
+output_directory/com/third/mx/utils/b.smali:    invoke-interface {v0}, Lorg/apache/http/NameValuePair;->getValue()Ljava/lang/String;
+output_directory/com/third/mx/update/a.smali:    const-string v1, "http"
+output_directory/com/third/mx/update/b.smali:    const-string v2, "http"
+output_directory/com/appbrain/a/v.smali:    const-string v1, "AppLift SDK requires changes to your proguard config. Please check http://www.appbrain.com/info/sdk"
+output_directory/com/appbrain/a/v.smali:    const-string v2, "http://p.appbrain.com"
+output_directory/com/appbrain/a/v.smali:    const-string v2, "http://sdk.appbrain.com"
+output_directory/com/appbrain/a/ad.smali:    new-instance v0, Lorg/apache/http/client/methods/HttpGet;
+output_directory/com/appbrain/a/ad.smali:    invoke-direct {v0, v3}, Lorg/apache/http/client/methods/HttpGet;-><init>(Ljava/lang/String;)V
+output_directory/com/appbrain/a/ad.smali:    invoke-static {}, Lcmn/h;->a()Lorg/apache/http/impl/client/DefaultHttpClient;
+output_directory/com/appbrain/a/ad.smali:    invoke-virtual {v3, v0}, Lorg/apache/http/impl/client/DefaultHttpClient;->execute(Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/HttpResponse;
+output_directory/com/appbrain/a/ad.smali:    invoke-interface {v3}, Lorg/apache/http/HttpResponse;->getEntity()Lorg/apache/http/HttpEntity;
+output_directory/com/appbrain/a/ad.smali:    invoke-interface {v0, v4}, Lorg/apache/http/HttpEntity;->writeTo(Ljava/io/OutputStream;)V
+output_directory/com/appbrain/a/ad.smali:    invoke-static {v3}, Lcmn/h;->a(Lorg/apache/http/HttpResponse;)V
+output_directory/com/appbrain/a/ad.smali:    invoke-static {v3}, Lcmn/h;->a(Lorg/apache/http/HttpResponse;)V
+output_directory/com/google/ads/AdView.smali:    const-string v0, "http://schemas.android.com/apk/lib/com.google.ads"
+output_directory/com/google/ads/AdView.smali:    const-string v0, "http://schemas.android.com/apk/lib/com.google.ads"
+output_directory/com/google/ads/AdView.smali:    const-string v1, "http://schemas.android.com/apk/lib/com.google.ads"
+output_directory/com/google/ads/AdView.smali:    const-string v3, "http://schemas.android.com/apk/lib/com.google.ads"
+output_directory/com/google/ads/AdView.smali:    const-string v0, "http://schemas.android.com/apk/lib/com.google.ads"
+output_directory/com/google/ads/a.smali:    const-string v1, "/httpTrack"
+output_directory/com/google/ads/c.smali:    const-string v0, "<html><head><script src=\"http://www.gstatic.com/safa/sdk-core-v40.js\"></script><script>"
+output_directory/com/google/ads/c.smali:    const-string v0, "<html><head><script src=\"http://media.admob.com/sdk-core-v40.js\"></script><script>"
+output_directory/com/google/ads/util/AdUtil.smali:    const-string v1, "http"
+output_directory/com/google/ads/util/AdUtil.smali:    const-string v1, "https"
+output_directory/u/aly/t.smali:    new-instance v0, Lorg/apache/http/client/methods/HttpPost;
+output_directory/u/aly/t.smali:    invoke-direct {v0, p2}, Lorg/apache/http/client/methods/HttpPost;-><init>(Ljava/lang/String;)V
+output_directory/u/aly/t.smali:    new-instance v2, Lorg/apache/http/params/BasicHttpParams;
+output_directory/u/aly/t.smali:    invoke-direct {v2}, Lorg/apache/http/params/BasicHttpParams;-><init>()V
+output_directory/u/aly/t.smali:    invoke-static {v2, v3}, Lorg/apache/http/params/HttpConnectionParams;->setConnectionTimeout(Lorg/apache/http/params/HttpParams;I)V
+output_directory/u/aly/t.smali:    invoke-static {v2, v3}, Lorg/apache/http/params/HttpConnectionParams;->setSoTimeout(Lorg/apache/http/params/HttpParams;I)V
+output_directory/u/aly/t.smali:    new-instance v3, Lorg/apache/http/impl/client/DefaultHttpClient;
+output_directory/u/aly/t.smali:    invoke-direct {v3, v2}, Lorg/apache/http/impl/client/DefaultHttpClient;-><init>(Lorg/apache/http/params/HttpParams;)V
+output_directory/u/aly/t.smali:    invoke-virtual {v0, v2, v4}, Lorg/apache/http/client/methods/HttpPost;->addHeader(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/u/aly/t.smali:    invoke-virtual {v0, v2, v4}, Lorg/apache/http/client/methods/HttpPost;->addHeader(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/u/aly/t.smali:    invoke-virtual {v0, v2, v4}, Lorg/apache/http/client/methods/HttpPost;->addHeader(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/u/aly/t.smali:    new-instance v2, Lorg/apache/http/HttpHost;
+output_directory/u/aly/t.smali:    invoke-direct {v2, v4, v5}, Lorg/apache/http/HttpHost;-><init>(Ljava/lang/String;I)V
+output_directory/u/aly/t.smali:    invoke-interface {v3}, Lorg/apache/http/client/HttpClient;->getParams()Lorg/apache/http/params/HttpParams;
+output_directory/u/aly/t.smali:    const-string v5, "http.route.default-proxy"
+output_directory/u/aly/t.smali:    invoke-interface {v4, v5, v2}, Lorg/apache/http/params/HttpParams;->setParameter(Ljava/lang/String;Ljava/lang/Object;)Lorg/apache/http/params/HttpParams;
+output_directory/u/aly/t.smali:    new-instance v2, Lorg/apache/http/entity/InputStreamEntity;
+output_directory/u/aly/t.smali:    invoke-direct {v2, v4, v5, v6}, Lorg/apache/http/entity/InputStreamEntity;-><init>(Ljava/io/InputStream;J)V
+output_directory/u/aly/t.smali:    invoke-virtual {v0, v2}, Lorg/apache/http/client/methods/HttpPost;->setEntity(Lorg/apache/http/HttpEntity;)V
+output_directory/u/aly/t.smali:    invoke-interface {v3, v0}, Lorg/apache/http/client/HttpClient;->execute(Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/HttpResponse;
+output_directory/u/aly/t.smali:    invoke-interface {v0}, Lorg/apache/http/HttpResponse;->getStatusLine()Lorg/apache/http/StatusLine;
+output_directory/u/aly/t.smali:    invoke-interface {v2}, Lorg/apache/http/StatusLine;->getStatusCode()I
+output_directory/u/aly/t.smali:    invoke-interface {v0, v3}, Lorg/apache/http/HttpResponse;->getFirstHeader(Ljava/lang/String;)Lorg/apache/http/Header;
+output_directory/u/aly/t.smali:    invoke-static {v3, v4}, Lu/aly/cf;->a(Lorg/apache/http/Header;Ljava/lang/String;)Z
+output_directory/u/aly/t.smali:    invoke-interface {v0}, Lorg/apache/http/HttpResponse;->getEntity()Lorg/apache/http/HttpEntity;
+output_directory/u/aly/t.smali:    invoke-interface {v0}, Lorg/apache/http/HttpEntity;->getContent()Ljava/io/InputStream;
+output_directory/u/aly/t.smali:    .catch Lorg/apache/http/client/ClientProtocolException; {:try_start_35 .. :try_end_c5} :catch_d3
+output_directory/u/aly/t.smali:    .catch Lorg/apache/http/client/ClientProtocolException; {:try_start_ca .. :try_end_d3} :catch_d3
+output_directory/u/aly/by.smali:    new-instance v5, Lorg/apache/http/client/methods/HttpGet;
+output_directory/u/aly/by.smali:    invoke-direct {v5, p1}, Lorg/apache/http/client/methods/HttpGet;-><init>(Ljava/lang/String;)V
+output_directory/u/aly/by.smali:    invoke-direct {p0}, Lu/aly/by;->b()Lorg/apache/http/params/HttpParams;
+output_directory/u/aly/by.smali:    new-instance v1, Lorg/apache/http/impl/client/DefaultHttpClient;
+output_directory/u/aly/by.smali:    invoke-direct {v1, v0}, Lorg/apache/http/impl/client/DefaultHttpClient;-><init>(Lorg/apache/http/params/HttpParams;)V
+output_directory/u/aly/by.smali:    invoke-interface {v1, v5}, Lorg/apache/http/client/HttpClient;->execute(Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/HttpResponse;
+output_directory/u/aly/by.smali:    invoke-interface {v0}, Lorg/apache/http/HttpResponse;->getStatusLine()Lorg/apache/http/StatusLine;
+output_directory/u/aly/by.smali:    invoke-interface {v1}, Lorg/apache/http/StatusLine;->getStatusCode()I
+output_directory/u/aly/by.smali:    invoke-interface {v0}, Lorg/apache/http/HttpResponse;->getEntity()Lorg/apache/http/HttpEntity;
+output_directory/u/aly/by.smali:    invoke-interface {v1}, Lorg/apache/http/HttpEntity;->getContent()Ljava/io/InputStream;
+output_directory/u/aly/by.smali:    invoke-interface {v0, v5}, Lorg/apache/http/HttpResponse;->getFirstHeader(Ljava/lang/String;)Lorg/apache/http/Header;
+output_directory/u/aly/by.smali:    invoke-interface {v0}, Lorg/apache/http/Header;->getValue()Ljava/lang/String;
+output_directory/u/aly/by.smali:    invoke-virtual {v5, v0, v1}, Lorg/apache/http/client/methods/HttpGet;->addHeader(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/u/aly/by.smali:    .catch Lorg/apache/http/client/ClientProtocolException; {:try_start_c .. :try_end_fe} :catch_100
+output_directory/u/aly/by.smali:    invoke-interface {v0}, Lorg/apache/http/Header;->getValue()Ljava/lang/String;
+output_directory/u/aly/by.smali:    .catch Lorg/apache/http/client/ClientProtocolException; {:try_start_122 .. :try_end_14b} :catch_100
+output_directory/u/aly/by.smali:    invoke-interface {v0}, Lorg/apache/http/HttpResponse;->getStatusLine()Lorg/apache/http/StatusLine;
+output_directory/u/aly/by.smali:    invoke-interface {v0}, Lorg/apache/http/StatusLine;->getStatusCode()I
+output_directory/u/aly/by.smali:    .catch Lorg/apache/http/client/ClientProtocolException; {:try_start_16d .. :try_end_1a2} :catch_100
+output_directory/u/aly/by.smali:    new-instance v4, Lorg/apache/http/client/methods/HttpPost;
+output_directory/u/aly/by.smali:    invoke-direct {v4, p1}, Lorg/apache/http/client/methods/HttpPost;-><init>(Ljava/lang/String;)V
+output_directory/u/aly/by.smali:    invoke-direct {p0}, Lu/aly/by;->b()Lorg/apache/http/params/HttpParams;
+output_directory/u/aly/by.smali:    new-instance v6, Lorg/apache/http/impl/client/DefaultHttpClient;
+output_directory/u/aly/by.smali:    invoke-direct {v6, v5}, Lorg/apache/http/impl/client/DefaultHttpClient;-><init>(Lorg/apache/http/params/HttpParams;)V
+output_directory/u/aly/by.smali:    invoke-virtual {v4, v5, v7}, Lorg/apache/http/client/methods/HttpPost;->addHeader(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/u/aly/by.smali:    new-instance v5, Lorg/apache/http/entity/InputStreamEntity;
+output_directory/u/aly/by.smali:    invoke-direct {v5, v7, v8, v9}, Lorg/apache/http/entity/InputStreamEntity;-><init>(Ljava/io/InputStream;J)V
+output_directory/u/aly/by.smali:    invoke-virtual {v4, v5}, Lorg/apache/http/client/methods/HttpPost;->setEntity(Lorg/apache/http/HttpEntity;)V
+output_directory/u/aly/by.smali:    invoke-interface {v6, v4}, Lorg/apache/http/client/HttpClient;->execute(Lorg/apache/http/client/methods/HttpUriRequest;)Lorg/apache/http/HttpResponse;
+output_directory/u/aly/by.smali:    invoke-interface {v4, v2}, Lorg/apache/http/HttpResponse;->getFirstHeader(Ljava/lang/String;)Lorg/apache/http/Header;
+output_directory/u/aly/by.smali:    invoke-interface {v4}, Lorg/apache/http/HttpResponse;->getStatusLine()Lorg/apache/http/StatusLine;
+output_directory/u/aly/by.smali:    invoke-interface {v5}, Lorg/apache/http/StatusLine;->getStatusCode()I
+output_directory/u/aly/by.smali:    invoke-static {v2, v5}, Lu/aly/cf;->a(Lorg/apache/http/Header;Ljava/lang/String;)Z
+output_directory/u/aly/by.smali:    invoke-interface {v4}, Lorg/apache/http/HttpResponse;->getEntity()Lorg/apache/http/HttpEntity;
+output_directory/u/aly/by.smali:    invoke-interface {v1}, Lorg/apache/http/HttpEntity;->getContent()Ljava/io/InputStream;
+output_directory/u/aly/by.smali:    invoke-interface {v4, v1}, Lorg/apache/http/HttpResponse;->getFirstHeader(Ljava/lang/String;)Lorg/apache/http/Header;
+output_directory/u/aly/by.smali:    invoke-interface {v1}, Lorg/apache/http/Header;->getValue()Ljava/lang/String;
+output_directory/u/aly/by.smali:    new-instance v7, Lorg/apache/http/message/BasicNameValuePair;
+output_directory/u/aly/by.smali:    invoke-direct {v7, v8, v2}, Lorg/apache/http/message/BasicNameValuePair;-><init>(Ljava/lang/String;Ljava/lang/String;)V
+output_directory/u/aly/by.smali:    new-instance v2, Lorg/apache/http/client/entity/UrlEncodedFormEntity;
+output_directory/u/aly/by.smali:    invoke-direct {v2, v5, v7}, Lorg/apache/http/client/entity/UrlEncodedFormEntity;-><init>(Ljava/util/List;Ljava/lang/String;)V
+output_directory/u/aly/by.smali:    invoke-virtual {v4, v2}, Lorg/apache/http/client/methods/HttpPost;->setEntity(Lorg/apache/http/HttpEntity;)V
+output_directory/u/aly/by.smali:    .catch Lorg/apache/http/client/ClientProtocolException; {:try_start_45 .. :try_end_f3} :catch_f5
+output_directory/u/aly/by.smali:    invoke-interface {v4}, Lorg/apache/http/HttpResponse;->getStatusLine()Lorg/apache/http/StatusLine;
+output_directory/u/aly/by.smali:    invoke-interface {v4}, Lorg/apache/http/StatusLine;->getStatusCode()I
+output_directory/u/aly/by.smali:    .catch Lorg/apache/http/client/ClientProtocolException; {:try_start_116 .. :try_end_14b} :catch_f5
+output_directory/u/aly/by.smali:.method private b()Lorg/apache/http/params/HttpParams;
+output_directory/u/aly/by.smali:    new-instance v0, Lorg/apache/http/params/BasicHttpParams;
+output_directory/u/aly/by.smali:    invoke-direct {v0}, Lorg/apache/http/params/BasicHttpParams;-><init>()V
+output_directory/u/aly/by.smali:    invoke-static {v0, v1}, Lorg/apache/http/params/HttpConnectionParams;->setConnectionTimeout(Lorg/apache/http/params/HttpParams;I)V
+output_directory/u/aly/by.smali:    invoke-static {v0, v1}, Lorg/apache/http/params/HttpConnectionParams;->setSoTimeout(Lorg/apache/http/params/HttpParams;I)V
+output_directory/u/aly/by.smali:    const-string v1, "http.agent"
+output_directory/u/aly/by.smali:    invoke-static {v0, v1}, Lorg/apache/http/params/HttpProtocolParams;->setUserAgent(Lorg/apache/http/params/HttpParams;Ljava/lang/String;)V
+output_directory/u/aly/cf.smali:.method public static a(Lorg/apache/http/Header;Ljava/lang/String;)Z
+output_directory/u/aly/cf.smali:    invoke-interface {p0}, Lorg/apache/http/Header;->getValue()Ljava/lang/String;
+output_directory/u/aly/cf.smali:    invoke-interface {p0}, Lorg/apache/http/Header;->getValue()Ljava/lang/String;
+output_directory/u/aly/cf.smali:    const-string v2, "http://"
+output_directory/u/aly/cf.smali:    const-string v2, "https://"

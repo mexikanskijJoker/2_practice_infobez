@@ -1,0 +1,23 @@
+output_directory/com/umeng/analytics/social/f.smali:    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;
+output_directory/com/m/ac/ab.smali:    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;
+output_directory/com/m/u/ap.smali:    const-string v2, "getDeviceIdGemini"
+output_directory/com/m/u/ap.smali:    invoke-virtual {v1}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;
+output_directory/com/m/u/ap.smali:    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;
+output_directory/com/m/u/ap.smali:    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;
+output_directory/com/m/u/ap.smali:    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;
+output_directory/com/m/u/ap.smali:    const-string v4, "getDeviceId"
+output_directory/com/m/u/at.smali:    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;
+output_directory/com/st/m/da/c.smali:    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;
+output_directory/com/st/m/u/j.smali:    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;
+output_directory/com/st/m/u/gt.smali:    const-string v2, "getDeviceIdGemini"
+output_directory/com/st/m/u/gt.smali:    invoke-virtual {v1}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;
+output_directory/com/st/m/u/gt.smali:    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;
+output_directory/com/st/m/u/gt.smali:    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;
+output_directory/com/st/m/u/gt.smali:    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;
+output_directory/com/st/m/u/gt.smali:    const-string v4, "getDeviceId"
+output_directory/com/android/notification/util/AppUtil.smali:    invoke-virtual/range {v16 .. v16}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;
+output_directory/com/third/mu/utils/d.smali:    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;
+output_directory/com/third/mx/utils/i.smali:    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;
+output_directory/u/aly/e.smali:    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;
+output_directory/u/aly/bs.smali:    invoke-virtual {v0}, Landroid/telephony/TelephonyManager;->getDeviceId()Ljava/lang/String;
+output_directory/u/aly/bs.smali:    const-string v3, "getDeviceId: Secure.ANDROID_ID: "
